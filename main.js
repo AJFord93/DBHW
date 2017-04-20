@@ -93,7 +93,7 @@ let addContact = function(){
     });
   });
 
-  start();
+  
 }; // check semi-colons
 
 let updateContact = function() {
@@ -116,37 +116,24 @@ let updateContact = function() {
   }
 
 
+
+
+
+
+
+
 ]).then(function(answer){
   let model = answer.selectContact;
 
   inquirer.prompt([
     {
       name: "fieldSelect",
-      type: 'list',
+      type: 'rawlist',
       message: 'Which field would you like to update?',
       choices: ['Phone', 'Email', 'Current City']
       }
-  ]).then(function(update){
-    //based on answer either view, add or update contacts
-    switch (update.fieldSelect) {
-      case 'Phone':
-      updatePhone();
-      break;
-
-      case 'Email':
-      updateEmail();
-      break;
-
-      case 'Current City':
-      updateCity();
-      break;
-    }
-  });
+  ])
 });
-
-// let updatePhone = function() {
-//   connection.query("SELECT * FROM models WHERE first_name = " + model)
-// }
 
 
 
